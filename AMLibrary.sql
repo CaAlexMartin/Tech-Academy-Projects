@@ -353,8 +353,8 @@ and the total number of books loaned out from that branch.
 -----------------------------------*/
 
 SELECT
-	e.BranchName, SUM(g.no_of_copies) 
-	FROM BOOK_COPIES g 
+	e.BranchName, COUNT(*) 
+	FROM BOOK_LOANS g 
 	INNER JOIN LIBRARY_BRANCH e ON e.BranchId = g.BranchId
 	GROUP BY e.BranchName
 	; 
